@@ -16,7 +16,7 @@ export class DataService {
     chosenQuestion: any = [];
 
     constructor (private _http: Http) {
-        this.getTodaysQuestions("ios");
+       // this.getTodaysQuestions("ios");
      }
 
     getTodaysQuestions(tag:string) {
