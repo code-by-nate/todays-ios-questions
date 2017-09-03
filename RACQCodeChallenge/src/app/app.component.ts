@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../app/services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
 
-  questions : string[];
+  questions : any[];
+
+  constructor(private _dataService: DataService) { }
   
   ngOnInit() {
-      this.questions = ["Question 1", "Question 2"];
+      this._dataService.getTodaysQuestions("ios")
+          .subscribe(
+            data => {
+              this.questions = data.items;
+            },
+            err => {
+              // handle error
+            }
+          )
   }
 }
