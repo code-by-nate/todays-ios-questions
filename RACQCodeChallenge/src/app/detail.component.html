@@ -1,1 +1,12 @@
 <h1> Selected Question thread </h1>
+<br/>
+<h3 [innerHtml]="question.title"></h3>
+<div [innerHtml]="question.body"></div>
+<img src={{question.owner.profile_image}} height="50" width="50"/>
+<hr/>
+<h3>{{answers}} answers</h3>
+<div *ngFor="let answer of questionAnswerThread">
+    <div [innerHtml]="answer.body"></div>
+    <img src={{answer.owner.profile_image}} height="50" width="50"/>
+    <hr/>
+</div>
