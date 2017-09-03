@@ -21,4 +21,10 @@ export class DataService {
         return this._http.get(url).map((res:Response)=>res.json());
     }
 
+    getQuestionComments(questionIds: string):Observable<any> {
+        let url = SO_PREFIX_URL + "2.2/questions/" + questionIds + "/comments?order=desc&sort=creation&site=stackoverflow&filter=withbody";
+
+        return this._http.get(url).map((res:Response)=>res.json());
+    }
+
 }
