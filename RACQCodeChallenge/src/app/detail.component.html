@@ -1,12 +1,38 @@
-<h1> Selected Question thread </h1>
-<br/>
-<h3 [innerHtml]="question.title"></h3>
-<div [innerHtml]="question.body"></div>
-<img src={{question.owner.profile_image}} height="50" width="50"/>
-<hr/>
-<h3>{{answers}} answers</h3>
-<div *ngFor="let answer of questionAnswerThread">
-    <div [innerHtml]="answer.body"></div>
-    <img src={{answer.owner.profile_image}} height="50" width="50"/>
+<div class="container">
+    <h2> Selected Question thread </h2>
+    <div class="card card-default">
+        <div class="card-header"><h3 [innerHtml]="question.title"></h3></div>
+        <div class="card-body" >
+            <div class="question-body" [innerHtml]="question.body"></div>
+            <div class="user col-2">
+                <img src={{question.owner.profile_image}} height="75" width="75"/>{{question.owner.display_name}}
+                <img src="assets/star.png" />{{question.owner.reputation}}
+            </div>
+        </div>
+        <!-- Comments -->
+        <div class="card-footer card-default">
+            <ul >
+                <li *ngFor="let comment of questionComments">
+                    {{comment}}
+                </li>
+            </ul>
+        </div>
+    </div>
     <hr/>
+    <h4>{{answers}} answers</h4>
+   
+    <div *ngFor="let answer of questionAnswerThread">
+        <div class="card card-default">
+            <div class="answer-body" [innerHtml]="answer.body"></div>
+            <div class="user col-2">
+                <img src={{answer.owner.profile_image}} height="75" width="75"/>{{answer.owner.display_name}}
+                <img src="assets/star.png" />{{answer.owner.reputation}}
+            </div>
+            <div class="card-footer" *ngFor="let comment of answerComment">
+                <ng-template [ngIf]="comment.answer_id == answer.answer_id">
+                    {{comment}}
+                </ng-template>
+            </div>
+        </div>
+    </div>
 </div>

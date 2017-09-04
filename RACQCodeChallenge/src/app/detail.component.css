@@ -1,0 +1,18 @@
+
+.question-body, .answer-body {
+    padding: 10px 10px 10px 10px;
+}
+
+.user img {
+    padding: 3px 5px 10px 5px;
+}
+
+h2 {
+    background-color: lightblue;
+    border-bottom: 1px solid skyblue;
+    padding: 8px 8px 8px 8px;
+}
+
+h2, h3 {
+    text-align: center;
+}
