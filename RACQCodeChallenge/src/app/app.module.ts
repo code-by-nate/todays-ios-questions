@@ -5,6 +5,8 @@ import {RouterModule} from '@angular/router'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 
+import { CoolStorageModule } from 'angular2-cool-storage';
+
 import { AppComponent } from './app.component';
 import { MasterComponent } from './master.component';
 import { DetailComponent } from './detail.component';
@@ -39,7 +41,8 @@ const routes =[
     BrowserModule,
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
-    HttpModule
+    HttpModule,
+    CoolStorageModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
