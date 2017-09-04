@@ -1,18 +1,21 @@
 <h2>Today's StackOverFlows questions related to iOS</h2>
-<ul style="list-style-type: none">
-  <li *ngFor="let question of this._dataService.todaysQuestions" (click)="showQuestionDetails(question)">
-      <div>
-          <img src={{question.owner.profile_image}} height="50" width="50"/>
-          Title:{{question.title}}
-          <p>Score:{{question.score}}</p>
-          <p>Tags:{{question.tags}}</p>
-          <p>Answer Count: {{question.answer_count}}</p>
-          <div *ngFor="let comment of questionComments">
-                <template [ngIf]="comment.post_id == question.question_id">
-                      comment <!-- needs work -->
-                </template>
-          </div>
-      </div><hr>
-  </li>
-</ul>
+<div class="question-list">
+    <div class="question card" *ngFor="let question of this._dataService.todaysQuestions" (click)="showQuestionDetails(question)">
+        <div class="card-header" [innerHtml]="question.title"></div>
+        <div class="card-block">
+            <h4><span class="label label-success" style="float: right">{{question.score}}</span></h4>
+            <img src={{question.owner.profile_image}} height="75" width="75"/>
+            <span class="label label-primary">{{question.answer_count}} answers</span>
+            <span class="label label-primary">1 comment</span>  
+        </div> 
+        <div class="card-footer text-muted">
+                <ul class="tags">
+                    <li *ngFor="let tag of question.tags">
+                        <span class="label label-default tag-label">{{tag}}</span>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</div>
+
 

@@ -1,0 +1,49 @@
+
+.question-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.question {
+    min-width: 60%;
+    max-width: 60%;
+    word-wrap: break-word;
+    border: 1px solid gray;
+    border-radius: 5px;
+    left:0;right:0;margin:auto;
+}
+
+h4, h2 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    background-color: lightblue;
+    border-bottom: 1px solid skyblue;
+    padding: 8px 8px 8px 8px;
+}
+
+.card-header {
+    text-align: center;
+}
+
+img {
+    padding: 3px 10px 7px 5px;
+}
+
+.tags {
+    list-style-type: none;
+}
+
+.tags li {
+    display: inline;
+    padding: 0px 3px 0px 3px;
+}
+
+.tag-label {
+    left: 20%;
+}
+
