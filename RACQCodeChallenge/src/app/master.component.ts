@@ -5,12 +5,11 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-master',
   templateUrl: './master.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./master.component.css']
 })
 export class MasterComponent {
 
   questionIds: any = "";
-  questionComments: any[];
 
   constructor(private _dataService: DataService, private _router: Router) {
       
@@ -43,7 +42,7 @@ export class MasterComponent {
   fetchComments(questionIds) {
     this._dataService.getQuestionComments(questionIds).subscribe (
                 data => {
-                    this.questionComments = data.items;
+                    this._dataService.todaysQuestionComments = data.items;
                 },
                 err => {
                   // handle error TODO
