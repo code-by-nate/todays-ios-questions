@@ -11,9 +11,11 @@
         </div>
         <!-- Comments -->
         <div class="card-footer card-default">
-            <ul >
-                <li *ngFor="let comment of questionComments">
-                    {{comment}}
+            <h5 *ngIf="this._dataService.chosenQuestionComments[0] != null">Comments</h5>
+            <ul class="question-comments">
+                <li *ngFor="let comment of this._dataService.chosenQuestionComments">
+                    <img src={{comment.owner.profile_image}} height="25" width="25"/>{{comment.owner.display_name}}
+                    <div [innerHtml]="comment.body"></div><hr/>
                 </li>
             </ul>
         </div>
@@ -28,10 +30,13 @@
                 <img src={{answer.owner.profile_image}} height="75" width="75"/>{{answer.owner.display_name}}
                 <img src="assets/star.png" />{{answer.owner.reputation}}
             </div>
-            <div class="card-footer" *ngFor="let comment of answerComment">
-                <ng-template [ngIf]="comment.answer_id == answer.answer_id">
-                    {{comment}}
-                </ng-template>
+            <div class="card-footer">
+                <div *ngFor="let comment of answerComments">
+                    <ng-template [ngIf]="comment.post_id == answer.answer_id">
+                        <img class="commentUser" src={{comment.owner.profile_image}} height="25" width="25"/>{{comment.owner.display_name}}
+                        <div [innerHtml]="comment.body"></div><hr/>
+                    </ng-template>
+                </div>
             </div>
         </div>
     </div>

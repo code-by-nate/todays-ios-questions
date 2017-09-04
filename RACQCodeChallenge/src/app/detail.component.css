@@ -16,3 +16,15 @@ h2 {
 h2, h3 {
     text-align: center;
 }
+
+.question-comments {
+    list-style-type: none;
+}
+
+.question-comments li img{
+    padding-right: 3px;
+}
+
+.commentUser {
+    padding-right: 5px;
+}
