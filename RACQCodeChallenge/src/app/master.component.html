@@ -1,5 +1,5 @@
 <div class="container">
-<h2>Today's StackOverFlows questions related to iOS</h2>
+<h2>Today's StackOverFlows questions related to iOS <button class="btn btn-default btn-md refresh" (click)="refreshQuestions()" >Refresh</button></h2>
 <div class="question-list">
     <div class="question card" *ngFor="let question of this._dataService.todaysQuestions" (click)="showQuestionDetails(question)">
         <div class="card-header" [innerHtml]="question.title"></div>
@@ -7,7 +7,7 @@
             <h4><span class="label label-success" style="float: right">{{question.score}}</span></h4>
             <img src={{question.owner.profile_image}} height="75" width="75"/>
             <span class="label label-primary">{{question.answer_count}} answers</span>
-            <span class="label label-primary">1 comment</span>  
+            <span class="label label-primary">{{getNumComments(question.question_id)}} comment</span>{{resetCommentCount()}}
         </div> 
         <div class="card-footer text-muted">
             <ul class="tags">
